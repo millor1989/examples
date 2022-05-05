@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue examples</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@3/lib/index.css"/>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@3/lib/vant.min.js"></script>
+<script src="./content.js" charset='UTF-8'></script>
+</head>
+<body>
+<div id="hello-vue" class="demo">
+  <h4>{{ message }}</h4>
+  <button @click="refresh">刷新</button>
+</div>
+
+<script>
+  
+  var pairs = content.split('\n');
+  var i = 0;
+  const app = Vue.createApp({
+    data() {
+      return {
+        message: pairs[i]
+      }
+    },
+    methods: {
+      refresh() {
+          i = i + 1;
+          if (i >= pairs.length) {
+            i = 0;
+          }
+          this.message = pairs[i];
+      },
+    }
+  })
+
+
+app.use(vant);
+app.use(vant.Lazyload);
+app.mount('#hello-vue')
+</script>
+</body>
+</html>
