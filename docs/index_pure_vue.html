@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <title>Vue examples</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@3/lib/index.css"/>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
-<script src="https://cdn.jsdelivr.net/npm/vant@3/lib/vant.min.js"></script>
 <script src="./content.js" charset='UTF-8'></script>
 </head>
 <body>
-    <div id="hello-vue" class="demo">
-    </div>
+<div id="hello-vue" class="demo">
+  <h4>{{ message }}</h4>
+  <button @click="refresh">刷新</button>
+</div>
 
 <script>
   
@@ -23,7 +23,6 @@
         message: pairs[i]
       }
     },
-    template:'<h2>{{ message }}</h2><van-button @click="refresh" type="primary">刷新</van-button>',
     methods: {
       refresh() {
           i = i + 1;
@@ -33,11 +32,8 @@
           this.message = pairs[i];
       },
     }
-  });
+  })
 
-
-app.use(vant);
-app.use(vant.Lazyload);
 app.mount('#hello-vue')
 </script>
 </body>
