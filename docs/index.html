@@ -1,50 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Vue with Quasar</title>
-<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.prod.css" rel="stylesheet" type="text/css">
-<script src="./content.js" charset='UTF-8'></script>
-<style lang="stylus">
-  div
-    color $red-1
-    background-color $grey-5
-  </style>
-</head>
-<body>
-    <div id="hello-vue" class="text-center fullscreen">
-      <div v-ripple>...</div>
-      <h2>{{ message }}</h2>
-      <q-btn class="text-red" @click="refresh">刷新</q-btn>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.umd.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/lang/zh-CN.umd.prod.js"></script>
 
-<script>
-  
-  var pairs = content.split('\n');
-  var i = 0;
-  const app = Vue.createApp({
-    data() {
-      return {
-        message: pairs[i]
-      }
-    },
-    methods: {
-      refresh() {
-          i = i + 1;
-          if (i >= pairs.length) {
-            i = 0;
-          }
-          this.message = pairs[i];
-      },
-    }
-  });
-  app.use(Quasar);
-  Quasar.lang.set(Quasar.lang.zhCN);
-app.mount('#hello-vue')
-</script>
+<head>
+  <meta charset="utf-8">
+  <title>Vue with Quasar</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet"
+    type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+  <script src="./src/content.js" charset='UTF-8'></script>
+</head>
+
+<body>
+  <div id="hello-vue" class="fullscreen">
+    <q-btn class="text-blue" @click="change">{{ learn_mode }}</q-btn>
+    <div class="text-center">
+    <h2>{{ message[0] }}</h2>
+    <h2>{{ message[1] }}</h2>
+    <q-btn class="text-green" @click="refresh">刷新</q-btn>
+    <div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.umd.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/lang/zh-CN.umd.prod.js"></script>
+
+  <script src="./src/main.js"></script>
 </body>
+
 </html>
