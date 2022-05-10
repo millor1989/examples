@@ -60,6 +60,7 @@ const app = Vue.createApp({
         }
     }
 });
+
 app.use(Quasar, {
     config: {
       brand: {
