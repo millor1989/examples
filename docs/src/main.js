@@ -26,21 +26,38 @@ const app = Vue.createApp({
     data() {
         return {
             message: pairs[i].split('\t'),
-            learn_mode: "En --> 汉"
+            learn_mode: "En",
+            q_t_class: "",
+            a_t_class: "invisible"
         }
     },
-    methods: {
-        change() {
+    methods: {// 方法
+        change() {// 英汉切换
             swq = swq + 1;
-            this.learn_mode = swq % 2 ? "En --> 汉" : "汉 --> En";
+            this.learn_mode = swq % 2 ? "En" : "Han";
         },
-        refresh() {
+        answer() {// 显示答案\译文
+            this.a_t_class = "";
+        },
+        pass() {// Pass 跳过
             i = i + 1;
             if (i >= pairs.length) {
                 i = 0;
             }
+            this.a_t_class = "invisible";
             this.message = pairs[i].split('\t');
         },
+    },
+    computed: {// 计算属性
+        modeText: function() {// learn_mode 变化时 modeText 随之变化
+            return this.learn_mode == "En" ? "En --> 汉" : "汉 --> En";
+        },
+        q_text: function() {
+            return this.learn_mode == "En" ? this.message[0] : this.message[1]
+        },
+        a_text: function() {
+            return this.learn_mode == "En" ? this.message[1] : this.message[0]
+        }
     }
 });
 app.use(Quasar, {

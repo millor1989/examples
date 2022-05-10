@@ -12,11 +12,14 @@
 
 <body>
   <div id="hello-vue" class="fullscreen">
-    <q-btn class="text-blue" @click="change">{{ learn_mode }}</q-btn>
+    <q-btn color="primary" @click="change">{{ modeText }}</q-btn>
     <div class="text-center">
-    <h2>{{ message[0] }}</h2>
-    <h2>{{ message[1] }}</h2>
-    <q-btn class="text-green" @click="refresh">刷新</q-btn>
+      <h2 v-bind:class="q_t_class">{{ q_text }}</h2>
+      <h2 v-bind:class="a_t_class">{{ a_text }}</h2>
+      <div style="width: 40%; margin-left: 30%;">
+        <q-btn color="secondary" @click="answer" label="翻译"></q-btn>
+        <q-btn color="positive" style="margin-left: 10%;" @click="pass" label="Pass"></q-btn>
+      </div>
     <div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
