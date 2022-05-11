@@ -39,12 +39,18 @@ const app = Vue.createApp({
         answer() {// 显示答案\译文
             this.a_t_class = "";
         },
-        pass() {// Pass 跳过
+        rusty() {// 生疏
+            // TODO
+        },
+        pass() {// Pass 跳过，熟练掌握了
             i = i + 1;
             if (i >= pairs.length) {
                 i = 0;
             }
+            // 确保答案不可见
             this.a_t_class = "invisible";
+
+            // 下一条
             this.message = pairs[i].split('\t');
         },
     },
