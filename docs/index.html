@@ -6,7 +6,7 @@
   <title>Vue with Quasar</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet"
     type="text/css">
-  <link href="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+  <link href="./src/quasar@2.6.6/dist/quasar.prod.css" rel="stylesheet" type="text/css">
   <script src="./src/content.js" charset='UTF-8'></script>
 </head>
 
@@ -21,13 +21,33 @@
         <q-btn color="positive" style="margin-left: 10%;" @click="pass" label="Pass"></q-btn>
       </div>
     </div>
-    <a href="./index_vant.html">other page</a>
+    <div class="q-pa-md">
+      <div class="q-gutter-y-md column" style="max-width: 300px">
+        <q-input outlined v-model="az_date" :dense="dense">
+          <template v-slot:prepend>
+            <q-icon name="event" />
+          </template>
+        </q-input>
+        <q-input outlined v-model="az_hour" :dense="dense">
+          <template v-slot:prepend>
+            <q-icon name="event" />
+          </template>
+        </q-input>
+      </div>
+    </div>
+    <q-input outlined v-model="az_hour_repair_url" hint="Readonly" :dense="dense" readonly />
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/quasar.umd.prod.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/quasar@2.6.6/dist/lang/zh-CN.umd.prod.js"></script>
-
+  <script src="./src/vue@3.2.34/dist/vue.global.prod.js"></script>
+  <script src="./src/quasar@2.6.6/dist/quasar.umd.prod.js"></script>
+  <script src="./src/quasar@2.6.6/dist/lang/zh-CN.umd.prod.js"></script>
+  <!-- <script src="./src/axios@0.27.2/dist/axios.min.js"></script> -->
   <script src="./src/main.js"></script>
+  <!--
+  <script type="module">
+    import axios from 'axios'
+    Vue.prototype.$http = axios
+  </script>
+-->
 </body>
 
 </html>
